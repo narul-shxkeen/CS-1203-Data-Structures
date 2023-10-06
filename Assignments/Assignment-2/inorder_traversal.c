@@ -35,24 +35,22 @@ void inOrderTrav(struct node* curr) {
     }
 }
 
+//The following is a function to create a horizontal representation of binary search tree.
+//All nodes below a selected node are smaller and the ones above are greater.
 void printTree(struct node* root, int level) {
-    // Base case
+
     if (root == NULL)
         return;
 
-    // Increase distance between levels
     level += 5;
 
-    // Print the right subtree, if it exists
     printTree(root->right, level);
 
-    // Print the current node with appropriate spacing
     printf("\n");
     for (int i = 5; i < level; i++)
         printf(" ");
     printf("%d\n", root->data);
 
-    // Print the left subtree, if it exists
     printTree(root->left, level);
 }
 
@@ -68,7 +66,7 @@ int main() {
     root->right->right->right = newNode(45);
     printf("Horizontal representation of the Binary Tree Structure on which the traversal is being performed::\n");
     printTree(root, 0);
-    printf("The inOrder Traversal is : ");
+    printf("The inOrder Traversal of the given tree is : ");
     inOrderTrav(root);
 
     return 0;
